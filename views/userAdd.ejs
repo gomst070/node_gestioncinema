@@ -1,0 +1,8 @@
+<h1>Ajouter une utilisateurs</h1>
+<form action="/user/new" method="POST">
+    Prénom: <input style="display: table-cell;" type="text" name="name" value="<%= name %>" >&nbsp;&nbsp;&nbsp;&nbsp;
+    Nom: <input style="display: table-cell;" type="text" name="lastname" value="<%= lastname %>"><br><br>
+    <input type="hidden" name="id" value="<%= id %>" >
+    <input type="submit" name="save" value="Sauver"><br>
+</form>
+<a href="/user">Retour aux users</a>   

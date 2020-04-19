@@ -1,0 +1,29 @@
+<h1>Ajouter/Modifier une séance</h1>
+<form action="/seances/new" method="POST">
+    <!-- Block date -->
+    <label style="display: inline-block; width: 50px; text-align: right;">Date: </label>
+    <input style="width: 170px;" type="date" name="date" value="<%=seances.date%>"><br><br>
+    <!-- Block heures -->
+    <label style="display: inline-block; width: 50px; text-align: right;">Heures: </label>
+    <input style="width: 170px;" type="time" name="heures" value="<%=seances.heures%>"><br><br>
+    <!-- Block films -->
+    <label style="display: inline-block; width: 50px; text-align: right;">Film: </label>
+    <select style="width: 170px; margin-right: 25px" name="id_film">
+        <option value="0" selected hidden>-</option>
+        <% for (let i = 0 ;  i < films.length ; i++) { %>
+            <option value="<%=films[i].id%>" <% if(seances.id_film === films[i].id){ %> selected <%}%>><%=films[i].title%></option>
+        <%}%>
+    </select>Le film n'est pas dans liste? <a href="/films/add">Cliquez ici pour le rajouter</a><br><br>
+    <!-- Block salles -->
+    <label style="display: inline-block; width: 50px; text-align: right;">Salle: </label>
+    <select style="width: 170px;" name="id_salle">
+        <option value="0" selected disabled hidden>-</option>
+        <% for (let i = 0 ;  i < salles.length ; i++) { %>
+            <option value="<%=salles[i].id%>" <% if(seances.id_salle === salles[i].id){ %> selected <%}%>><%=salles[i].name%> <% if(salles[i].extra === 1){ %> - (Salle 3D) <%}%></option>
+        <%}%>
+    </select><br><br>
+    <input type="hidden" name="id" value="<%=seances.id%>" >
+    <input type="submit" name="save" value="Sauver"><br><br>
+    <input type="button" value="Retour" onclick="history.go(-1)">
+</form>
+  

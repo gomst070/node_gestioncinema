@@ -1,0 +1,16 @@
+<a href="/">< Retour à la page d'accueil</a><br />
+<h1>Films</h1>
+<a href="/films/add">Ajouter un film</a><br /><br />    
+<table border="1" style="border-collapse: collapse; width: 40%; height:50px; text-align:center;">
+    <tr>
+       <th>Nom du film</th><th>Genre</th><th>Action</th><th>Action</th>
+    </tr>
+      <% for (let i = 0 ;  i < films.length ; i++) { %>
+     <tr>
+       <td><%=films[i].title%></td>
+       <td><%=films[i].name%></td>
+       <td><a href="/films/update/<%= films[i].id %>"><img width="16px" height="16px" src="./images/edit.png" alt="edit"/></a> </td>
+       <td><a onclick="return confirm('Veuillez cliquer sur OK si vous voulez supprimer cet élément')" href="/films/delete/<%= films[i].id %>"><img width="16px" height="16px" src="./images/delete.png" alt="delete"/></a></td>
+     </tr>    
+    <% } %>
+</table>

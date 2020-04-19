@@ -1,0 +1,8 @@
+<h1>Ajouter/Modifier une salle</h1>
+<form action="/salles/new" method="POST">
+    Nom de la salle: <input type="text" name="name" value="<%=name%>" > &nbsp;&nbsp;&nbsp;&nbsp;
+    3D: <input type="checkbox" name="extra" <% if(extra === 1){ %> checked <%}%> ><br/><br/>
+    <input type="hidden" name="id" value="<%=id%>" >
+    <input type="submit" name="save" value="Sauver"><br><br>
+    <input type="button" value="Retour" onclick="history.go(-1)">
+</form>

@@ -1,0 +1,18 @@
+<h1>Ajouter/Modifier un film</h1>
+<form action="/films/new" method="POST">
+    <!-- Block titre du film -->
+    <label style="display: inline-block; width: 100px; text-align: right;">Titre du film : </label>
+    <input type="text" name="title" size=25 value="<%=films.title%>"><br><br>
+    <!-- Block heures -->
+    <label style="display: inline-block; width: 100px; text-align: right;">Genre : </label>
+    <select name="id_categorie">
+        <option value="0" selected disabled hidden>-</option>
+        <% for (let i = 0 ;  i < categories.length ; i++) { %>
+            <option value="<%=categories[i].id%>" <% if(films.id_categorie === categories[i].id){ %> selected <%}%>><%=categories[i].name%></option>
+        <%}%>
+    </select><br><br>
+    <input type="hidden" name="id" value="<%=films.id%>">
+    <input type="submit" value="Sauver"><br><br>
+    <input type="button" value="Retour" onclick="history.go(-1)">
+</form>
+   

@@ -1,0 +1,16 @@
+<a href="/">< Retour à la page d'accueil</a><br />
+<h1>Liste des utilisateurs</h1>
+<a href="/user/add">Ajouter un utilisateur</a><br /><br/>
+<table border="1" style="border-collapse: collapse; width: 30%; text-align:center;">
+    <tr>
+       <th>Prénom</th><th>Nom</th><th>Action</th><th>Action</th>
+    </tr>
+    <% for (let i = 0 ;  i < users.length ; i++) { %>
+     <tr>
+       <td><%= users[i].name%></td>
+       <td><%= users[i].lastname%></td>
+       <td><a href="/user/update/<%= users[i].id %>"><img style="margin-left:7px;" width="16px" height="16px" src="./images/edit.png" alt="edit"/></a> </td>
+       <td><a onclick="return confirm('Veuillez cliquer sur OK si vous voulez supprimer cet élément')" href="/user/delete/<%= users[i].id %>"><img style="margin-left:7px;" width="16px" height="16px" src="./images/delete.png" alt="delete"/></a></td>
+     </tr>    
+    <% } %>
+  </table>

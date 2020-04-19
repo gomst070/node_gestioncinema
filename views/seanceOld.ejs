@@ -1,0 +1,17 @@
+<a href="/">< Retour à la page d'accueil</a><br />
+<h1>Séances archivées</h1>
+<table border="1" style="border-collapse: collapse; width: 50%; height:50px; text-align:center;">
+    <tr>
+       <th>Date</th><th>Heures</th><th>Film</th><th>Salle</th>
+    </tr>
+    <% for (let i = 0 ;  i < seancesold.length ; i++) { %>
+       <tr>
+         <td><%= seancesold[i].date%> </td>
+         <td><%= seancesold[i].heures%></td>
+         <td><%= seancesold[i].title%> </td>
+         <td><%= seancesold[i].name%> <% if(seancesold[i].extra === 1){ %> - (Salle 3D) <%}%></td>
+       </tr>    
+    <% } %>
+ </table><br>
+ <input type="button" value="Retour" onclick="history.go(-1)">
+ 
