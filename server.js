@@ -14,6 +14,6 @@ app.use('/', router);
 //Utiliser le dossier images
 app.use('/images/', express.static('./images'));
 
-//Port 
+//Port
 var port = 8000
 app.listen(port, function () { console.log('Navigateur => localhost:' + port); })

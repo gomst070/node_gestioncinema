@@ -32,7 +32,7 @@ exports.categorieNew = function(request, response) {
     });
 }
 
-//Updater une catégorie / genre de film 
+//Updater une catégorie / genre de films 
 exports.categorieUpdate = function(request, response) {
     let id = request.params.id;
     let name =  request.body.name;
