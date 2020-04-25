@@ -1,7 +1,11 @@
-<h1>Ajouter/Modifier un genre de film</h1>
-<form action="/categories/new" method="POST">
-    Genre: <input type="text" name="name" value="<%=name%>" ><br><br>
-    <input type="hidden" name="id" value="<%=id%>" >
-    <input type="submit" name="save" value="Sauver"><br><br>
-    <input type="button" value="Retour" onclick="history.go(-1)">
-</form> 
+<% if(loggedin){ %>
+    <h1>Ajouter/Modifier un genre de film</h1>
+    <form action="/categories/new" method="POST">
+        Genre: <input type="text" name="name" value="<%=name%>" ><br><br>
+        <input type="hidden" name="id" value="<%=id%>" >
+        <input type="submit" name="save" value="Sauver"><br><br>
+        <input type="button" value="Retour" onclick="history.go(-1)">
+    </form> 
+<% } else{ %> 
+    <h1>Accès interdit ! Il faut être administrateur pour accéder à cette page</h1> <a href="/login" style="color: black; font-size: 14px;">Connexion administrateur</a>
+<% } %> 

@@ -1,9 +1,10 @@
 //Definir les routes
 let express = require('express');
-let router = express.Router();              
+let router = express.Router();      
 
 //Import controller
 var userController = require('./controllers/userController');
+var loginController = require('./controllers/loginController');
 
 var filmsController = require('./controllers/filmsController');
 var filmsControllerApi = require('./controllers/filmsControllerApi');
@@ -18,6 +19,11 @@ var categoriesController = require('./controllers/categoriesController');
 var categoriesControllerApi = require('./controllers/categoriesControllerApi');
 
 router.get('/', (request, response) => response.render('home.ejs'));
+router.get('/login', (request, response) => response.render('login.ejs'));
+
+//Login routes
+router.post('/connexion', loginController.userLogin);
+router.get('/logout', loginController.userLogout);
 
 //Routes users
 router.get('/user', userController.userList);

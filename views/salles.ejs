@@ -1,16 +1,20 @@
-<a href="/">< Retour à la page d'accueil</a><br />
-<h1>Salles</h1>
-<a href="/salles/add">Ajouter une salle</a><br /><br /> 
-<table border="1" style="border-collapse: collapse; width: 20%; height:50px; text-align:center;">
-  <tr>
-     <th>Nom de la salle</th><th>3D</th><th>Action</th><th>Action</th>
-  </tr>
-  <% for (let i = 0 ;  i < salles.length ; i++) { %>
-   <tr>
-     <td><%= salles[i].name %> </td>
-     <td><input style="pointer-events:none" type="checkbox" name="extra" <% if(salles[i].extra === 1){ %> checked <%}%> ></td>
-     <td><a href="/salles/update/<%= salles[i].id %>"><img width="16px" height="16px" src="./images/edit.png" alt="edit"/></a> </td>
-     <td><a onclick="return confirm('Veuillez cliquer sur OK si vous voulez supprimer cet élément')" href="/salles/delete/<%= salles[i].id %>"><img width="16px" height="16px" src="./images/delete.png" alt="delete"/></a></td>
-   </tr>    
-  <% } %>
-</table>
+<% if(loggedin){ %>
+  <a href="/">< Retour à la page d'accueil</a><br />
+  <h1>Salles</h1>
+  <a href="/salles/add">Ajouter une salle</a><br /><br /> 
+  <table border="1" style="border-collapse: collapse; width: 20%; height:50px; text-align:center;">
+      <tr>
+        <th>Nom de la salle</th><th>3D</th><th>Action</th><th>Action</th>
+      </tr>
+      <% for (let i = 0 ;  i < salles.length ; i++) { %>
+      <tr>
+        <td><%= salles[i].name %> </td>
+        <td><input style="pointer-events:none" type="checkbox" name="extra" <% if(salles[i].extra === 1){ %> checked <%}%> ></td>
+        <td><a href="/salles/update/<%= salles[i].id %>"><img width="16px" height="16px" src="./images/edit.png" alt="edit"/></a> </td>
+        <td><a onclick="return confirm('Veuillez cliquer sur OK si vous voulez supprimer cet élément')" href="/salles/delete/<%= salles[i].id %>"><img width="16px" height="16px" src="./images/delete.png" alt="delete"/></a></td>
+      </tr>    
+      <% } %>
+  </table>
+<% } else{ %> 
+  <h1>Accès interdit ! Il faut être administrateur pour accéder à cette page</h1> <a href="/login" style="color: black; font-size: 14px;">Connexion administrateur</a>
+<% } %> 

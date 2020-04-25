@@ -19,7 +19,7 @@ exports.categorieList = function (request, response) {
 
 // Ajouter / modifier un genre de film
 exports.categorieNew =  function(request, response) {
-    let id = request.body.id
+    let id = request.body.id;
     let name =  request.body.name;
     if ( id == -1)
     {

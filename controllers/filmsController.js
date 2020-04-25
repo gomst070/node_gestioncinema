@@ -20,7 +20,7 @@ exports.filmList = function (request, response) {
 //Ajouter / modifier un film
 exports.filmNew = function(request, response) {
     //console.log(request.body);
-    let id = request.body.id
+    let id = request.body.id;
     let title =  request.body.title;
     let id_categorie = request.body.id_categorie;
     if ( id == "")

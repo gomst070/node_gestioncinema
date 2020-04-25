@@ -1,9 +1,11 @@
 <a href="/">< Retour à la page d'accueil</a><br />
 <h1>Séances à venir</h1>
-<a href="/seances/add">Ajouter une séance</a><br /><br /> 
+<% if(loggedin){ %>
+   <a href="/seances/add">Ajouter une séance</a><br /><br />    
+ <% } %>
 <table border="1" style="border-collapse: collapse; width: 50%; height:50px; text-align:center;">
     <tr>
-       <th>Date</th><th>Heures</th><th>Film</th><th>Salle</th><th>Action</th><th>Action</th>
+       <th>Date</th><th>Heures</th><th>Film</th><th>Salle</th><% if(loggedin){ %><th>Action</th><th>Action</th> <% } %>
     </tr>
     <% for (let i = 0 ;  i < seances.length ; i++) { %>
        <tr>
@@ -11,8 +13,10 @@
          <td><%= seances[i].heures%></td>
          <td><%= seances[i].title%> </td>
          <td><%= seances[i].name%> <% if(seances[i].extra === 1){ %> - (Salle 3D) <%}%></td>
-         <td><a href="/seances/update/<%= seances[i].id %>"><img width="16px" height="16px" src="./images/edit.png" alt="edit"/></a> </td>
-         <td><a onclick="return confirm('Veuillez cliquer sur OK si vous voulez supprimer cet élément')" href="/seances/delete/<%= seances[i].id %>"><img width="16px" height="16px" src="./images/delete.png" alt="delete"/></a></td>
+         <% if(loggedin){ %>
+            <td><a href="/seances/update/<%= seances[i].id %>"><img width="16px" height="16px" src="./images/edit.png" alt="edit"/></a> </td>
+            <td><a onclick="return confirm('Veuillez cliquer sur OK si vous voulez supprimer cet élément')" href="/seances/delete/<%= seances[i].id %>"><img width="16px" height="16px" src="./images/delete.png" alt="delete"/></a></td>   
+         <% } %>
        </tr>    
     <% } %>
  </table><br /><br /> 

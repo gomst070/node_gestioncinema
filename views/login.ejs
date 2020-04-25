@@ -1,0 +1,13 @@
+<a href="/">< Retour à la page d'accueil</a><br />
+<h1>Connexion gestion du cinéma</h1>
+<form action="/connexion" method="POST">
+    <h3 style="color:red"><%=error1%></h3>
+    <!-- Block username -->
+    <label style="display: inline-block; width: 100px; text-align: right;">Nom: </label>
+    <input type="text" name="name" size=25 value=""><br><br>
+    <!-- Block password -->
+    <label style="display: inline-block; width: 100px; text-align: right;">Mot de passe : </label>
+    <input type="password" size=25 name="password" ><br><br>
+    
+    <input style="display: inline-block; width: 100px;" type="submit" value="Connexion"><br><br>
+</form>

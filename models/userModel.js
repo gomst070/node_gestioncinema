@@ -1,10 +1,10 @@
 class User {
     name ="";
-    lastname="";
-    constructor(name, lastname)
+    password="";
+    constructor(name, password)
     {
         this.name = name;
-        this.lastname = lastname;
+        this.password = password;
     }
     
 };

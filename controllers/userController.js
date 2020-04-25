@@ -19,12 +19,12 @@ exports.userList = function (request, response) {
 
 // Add or update one user in the list
 exports.userNew =  function(request, response) {
-    let id = request.body.id
+    let id = request.body.id;
     let name =  request.body.name;
-    let lastname =  request.body.lastname;
+    let password =  request.body.password;
     if ( id == -1)
     {
-        let user = new User(name, lastname);
+        let user = new User(name, password);
         console.log(user);
         connection.query("INSERT INTO users set ?", user, function (error, resultSQL) {
             if(error) {
@@ -37,7 +37,7 @@ exports.userNew =  function(request, response) {
     }
     else if( id >=0 )
     {
-        let user = new User(name, lastname);
+        let user = new User(name, password);
         console.log(user);
         connection.query("UPDATE users SET ? WHERE id = ?", [user, request.body.id], function (error, resultSQL) {
             if(error) {
@@ -53,7 +53,7 @@ exports.userNew =  function(request, response) {
 
 // Send form to update user
 exports.userFormAdd = function(request, response) {
-    response.render('userAdd.ejs', {id:'-1', name:"", lastname:""});
+    response.render('userAdd.ejs', {id:'-1', name:"", password:""});
 }
 
 // Send user form update
@@ -66,7 +66,7 @@ exports.userFormUpdate =function (request, response) {
         else {
             response.status(200);
             users = resultSQL;
-            response.render('userAdd.ejs', {id:id, name:users[0].name, lastname:users[0].lastname});
+            response.render('userAdd.ejs', {id:id, name:users[0].name, password:""});
         }
     });
 }

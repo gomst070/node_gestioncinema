@@ -1,7 +1,20 @@
-<h1>Gestion du cinéma</h1><br>
-<!--<a href="/user" style="background-color: grey; color:white; padding: 10px 25px; text-align: center; text-decoration: none; font-size: 14px; margin-right: 25px;">User</a>-->
-<a href="/films" style="background-color: grey; color:white; padding: 10px 20px; text-align: center; text-decoration: none; font-size: 14px; margin-right: 20px;">Films</a>
-<a href="/seances" style="background-color: grey; color:white; padding: 10px 20px; text-align: center; text-decoration: none; font-size: 14px;">Séances</a>
-<br><br><br>
-<a href="/categories" style="background-color: grey; color:white; padding: 10px 16px; text-align: center; text-decoration: none; font-size: 14px; margin-right: 20px;">Genres</a>
-<a href="/salles" style="background-color: grey; color:white; padding: 10px 26px; text-align: center; text-decoration: none; font-size: 14px;">Salles</a>
+<% if(loggedin){ %>
+    <h1>Gestion du cinéma</h1>
+    <h3 style="font-weight: normal;">Bonjour, vous êtes connecté en tant que <b><%=name%>.</b> </h3> <a href="/logout" style="background-color: black; color:white; padding: 10px 26px; text-align: center; text-decoration: none; font-size: 14px;">Logout</a><br><br><br><br>
+    <a href="/films" style="background-color: grey; color:white; padding: 10px 20px; text-align: center; text-decoration: none; font-size: 14px; margin-right: 20px;">Films</a>
+    <a href="/seances" style="background-color: grey; color:white; padding: 10px 20px; text-align: center; text-decoration: none; font-size: 14px;">Séances</a>
+    <br><br><br><br>
+    <a href="/categories" style="background-color: grey; color:white; padding: 10px 16px; text-align: center; text-decoration: none; font-size: 14px; margin-right: 20px;">Genres</a>
+    <a href="/salles" style="background-color: grey; color:white; padding: 10px 26px; text-align: center; text-decoration: none; font-size: 14px;">Salles</a>
+    <br><br><br><br>
+    <a href="/user" style="background-color: grey; color:white; padding: 10px 25px; text-align: center; text-decoration: none; font-size: 14px; margin-right: 25px;">Utilisateurs</a>
+    <br><br><br><br>
+<% } else{ %>  
+    <a href="/login" style="color: black; font-size: 14px;">Connexion administrateur</a>
+    <h1>Bienvenue sur la page de votre cinéma!</h1> 
+    <h2 style="font-weight: normal;">Profitez des derniers films et planifier votre prochaine visite</h2><br>
+    <a href="/films" style="background-color: grey; color:white; padding: 10px 20px; text-align: center; text-decoration: none; font-size: 14px; margin-right: 20px;">Films</a>
+    <a href="/seances" style="background-color: grey; color:white; padding: 10px 20px; text-align: center; text-decoration: none; font-size: 14px;">Séances</a>
+    <br><br><br><br><br><br><br><br>
+<% } %>
+

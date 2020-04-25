@@ -1,15 +1,19 @@
-<a href="/">< Retour à la page d'accueil</a><br />
-<h1>Genres de films</h1>
-<a href="/categories/add">Ajouter un genre</a><br /><br />
-<table border="1" style="border-collapse: collapse; width: 30%; height:50px; text-align:center;">
-    <tr>
-       <th>Genre de film</th><th>Action</th><th>Action</th>
-    </tr>
-    <% for (let i = 0 ;  i < categories.length ; i++) { %>
-     <tr>
-       <td><%= categories[i].name%> </td>
-       <td><a href="/categories/update/<%=categories[i].id%>"><img style="margin-left:7px;" width="16px" height="16px" src="./images/edit.png" alt="edit"/></a> </td>
-       <td><a onclick="return confirm('Veuillez cliquer sur OK si vous voulez supprimer cet élément')" href="/categories/delete/<%=categories[i].id%>"><img style="margin-left:7px;" width="16px" height="16px" src="./images/delete.png" alt="delete"/></a></td>
-     </tr>    
-    <% } %>
+<% if(loggedin){ %>
+  <a href="/">< Retour à la page d'accueil</a><br />
+  <h1>Genres de films</h1>
+  <a href="/categories/add">Ajouter un genre</a><br /><br />
+  <table border="1" style="border-collapse: collapse; width: 30%; height:50px; text-align:center;">
+      <tr>
+        <th>Genre de film</th><th>Action</th><th>Action</th>
+      </tr>
+      <% for (let i = 0 ;  i < categories.length ; i++) { %>
+      <tr>
+        <td><%= categories[i].name%> </td>
+        <td><a href="/categories/update/<%=categories[i].id%>"><img style="margin-left:7px;" width="16px" height="16px" src="./images/edit.png" alt="edit"/></a> </td>
+        <td><a onclick="return confirm('Veuillez cliquer sur OK si vous voulez supprimer cet élément')" href="/categories/delete/<%=categories[i].id%>"><img style="margin-left:7px;" width="16px" height="16px" src="./images/delete.png" alt="delete"/></a></td>
+      </tr>    
+      <% } %>
   </table>
+<% } else{ %> 
+  <h1>Accès interdit ! Il faut être administrateur pour accéder à cette page</h1> <a href="/login" style="color: black; font-size: 14px;">Connexion administrateur</a>
+<% } %> 
