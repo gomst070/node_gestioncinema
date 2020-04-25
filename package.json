@@ -1,24 +1,27 @@
 {
-  "name": "node_demo_mvc",
+  "name": "gestioncinema",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": "db.js",
   "dependencies": {
+    "cookie-parser": "^1.4.5",
     "ejs": "^3.0.2",
     "express": "^4.17.1",
     "mysql": "^2.18.1"
   },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/clarophil/node_demo_mvc.git"
+    "url": "git+https://github.com/gomst070/node_gestioncinema.git"
   },
-  "author": "",
+  "author": "Steven Gomes",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/clarophil/node_demo_mvc/issues"
+    "url": "https://github.com/gomst070/node_gestioncinema/issues"
   },
-  "homepage": "https://github.com/clarophil/node_demo_mvc#readme"
+  "homepage": "https://github.com/gomst070/node_gestioncinema#readme"
 }

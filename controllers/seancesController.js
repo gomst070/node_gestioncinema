@@ -93,7 +93,7 @@ exports.seanceFormAdd = function(request, response) {
 exports.seanceFormUpdate = function (request, response) {
     let id = request.params.id;
     connection.query("Select * from seances WHERE id = ?", id, function (error, resultSQL){
-        //Convert date format 
+        //Convert date format - code copié / collé 
         for (var i = 0; i < resultSQL.length; i++) {
             for (key in resultSQL[i]) {
                 if(resultSQL[i][key] != null){
