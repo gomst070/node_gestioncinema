@@ -3,8 +3,10 @@ let express = require('express');
 let router = express.Router();      
 
 //Import controller
-var userController = require('./controllers/userController');
 var loginController = require('./controllers/loginController');
+
+var userController = require('./controllers/userController');
+var userControllerApi = require('./controllers/userControllerApi');
 
 var filmsController = require('./controllers/filmsController');
 var filmsControllerApi = require('./controllers/filmsControllerApi');
@@ -27,10 +29,16 @@ router.get('/logout', loginController.userLogout);
 
 //Routes users
 router.get('/user', userController.userList);
-router.get('/user/add', userController.userFormAdd);
+router.get('/user/add', userController.userAdd);
 router.post('/user/new', userController.userNew);
-router.get('/user/update/:id', userController.userFormUpdate);
+router.get('/user/update/:id', userController.userUpdate);
 router.get('/user/delete/:id', userController.userRemove);
+
+//API routes users
+router.get('/api/user', userControllerApi.userList);
+router.post('/api/user', userControllerApi.userNew);
+router.put('/api/user/:id', userControllerApi.userUpdate);
+router.delete('/api/user/:id', userControllerApi.userRemove);
 
 //Routes films
 router.get('/films', filmsController.filmList);

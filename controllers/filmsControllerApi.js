@@ -4,7 +4,7 @@ let filmList = [];
 
 //Listes des films
 exports.filmList = function (request, response) {    
-    connection.query("Select films.id, films.title, categories.name from films LEFT join categories on categories.id = films.id_categorie", function (error, resultSQL) {
+    connection.query("Select films.id, films.title, categories.name AS 'genre' from films LEFT join categories on categories.id = films.id_categorie", function (error, resultSQL) {
         if (error)  {
             response.status(400).json({'message': error});      
         }
