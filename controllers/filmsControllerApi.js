@@ -5,10 +5,10 @@ let filmList = [];
 //Listes des films
 exports.filmList = function (request, response) {
     let title = request.query.title; 
-    console.log(title);
+    //console.log(title);
     if (!(title)){
         connection.query("Select films.id, films.title, categories.name AS 'genre' from films LEFT join categories on categories.id = films.id_categorie", function (error, resultSQL) {
-            if (error)  {
+            if (error){
                 response.status(400).json({'message': error});      
             }
             else {
@@ -20,7 +20,7 @@ exports.filmList = function (request, response) {
         });
     } else {
         connection.query("Select films.id, films.title, categories.name AS 'genre' from films LEFT join categories on categories.id = films.id_categorie WHERE films.title LIKE" + connection.escape('%'+title+'%'), function (error, resultSQL) {
-            if (error)  {
+            if (error){
                 response.status(400).json({'message': error});      
             }
             else {
@@ -31,6 +31,23 @@ exports.filmList = function (request, response) {
             }
         });
     } 
+}
+
+exports.filmListSolo = function (request, response) {
+    let id = request.params.id; 
+    console.log(id);
+        connection.query("Select films.id, films.title, categories.name AS 'genre' from films LEFT join categories on categories.id = films.id_categorie WHERE films.id = ?", id, function (error, resultSQL) {
+            if (error){
+                response.status(400).json({'message': error});      
+            }
+            else {
+                response.status(200);
+                filmList = resultSQL;
+                console.log(filmList);
+                response.json({films:filmList});
+            }
+        });
+    
 }
 
 //Ajouter un film 

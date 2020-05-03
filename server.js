@@ -28,7 +28,13 @@ let router = require('./routes');
 app.use('/', router);
 
 //Utiliser le dossier images
-app.use('/images/', express.static('./images'));
+app.use('/images', express.static('./images'));
+
+//Utiliser le dossier images
+app.use('/css', express.static('./css'));
+
+//Utiliser le dossier images
+app.use('/script/', express.static('./script'));
 
 //Port
 var port = 8000

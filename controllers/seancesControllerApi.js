@@ -33,6 +33,24 @@ exports.seanceListOld = function (request, response) {
     });
 }
 
+//Afficher une séance
+exports.seanceListSolo = function (request, response) {
+    let id = request.params.id; 
+    console.log(id);
+    connection.query("Select seances.id, DATE_FORMAT(date, '%d/%m/%Y') AS date, DATE_FORMAT(seances.heures, '%H:%i') AS heures, films.title, salles.name, salles.extra from `seances` LEFT join films on films.id = seances.id_film LEFT join salles on salles.id = seances.id_salle WHERE date > CURDATE() AND heures > CURTIME() AND seances.id = ? ORDER BY date", id, function (error, resultSQL) {
+            if (error){
+                response.status(400).json({'message': error});      
+            }
+            else {
+                response.status(200);
+                seanceList = resultSQL;
+                console.log(seanceList);
+                response.json({seances:seanceList});
+            }
+        });
+    
+}
+
 
 //Ajouter une séance
 exports.seanceNew = function(request, response) {

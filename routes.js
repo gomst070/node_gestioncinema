@@ -21,6 +21,7 @@ var categoriesController = require('./controllers/categoriesController');
 var categoriesControllerApi = require('./controllers/categoriesControllerApi');
 
 router.get('/', (request, response) => response.render('home.ejs'));
+router.get('/ressources', (request, response) => response.render('ressources.ejs'));
 router.get('/login', (request, response) => response.render('login.ejs'));
 
 //Login routes
@@ -42,13 +43,14 @@ router.delete('/api/user/:id', userControllerApi.userRemove);
 
 //Routes films
 router.get('/films', filmsController.filmList);
-router.get('/films/add', filmsController.filmFormAdd);
+router.get('/filmsadd', filmsController.filmFormAdd);
 router.post('/films/new', filmsController.filmNew);
-router.get('/films/update/:id', filmsController.filmFormUpdate);
+router.get('/filmsupdate/:id', filmsController.filmFormUpdate);
 router.get('/films/delete/:id', filmsController.filmRemove);
 
 //API routes films
 router.get('/api/films', filmsControllerApi.filmList);
+router.get('/api/films/:id', filmsControllerApi.filmListSolo);
 router.post('/api/films', filmsControllerApi.filmNew);
 router.put('/api/films/:id', filmsControllerApi.filmUpdate);
 router.delete('/api/films/:id', filmsControllerApi.filmRemove);
@@ -68,24 +70,25 @@ router.delete('/api/salles/:id', sallesControllerApi.salleRemove);
 
 //Routes séances
 router.get('/seances', seancesController.seanceList);
-router.get('/seances/old', seancesController.seanceListOld);
-router.get('/seances/add', seancesController.seanceFormAdd);
+router.get('/seancesold', seancesController.seanceListOld);
+router.get('/seancesadd', seancesController.seanceFormAdd);
 router.post('/seances/new', seancesController.seanceNew);
-router.get('/seances/update/:id', seancesController.seanceFormUpdate);
+router.get('/seancesupdate/:id', seancesController.seanceFormUpdate);
 router.get('/seances/delete/:id', seancesController.seanceRemove);
 
 //API routes séances
 router.get('/api/seances', seancesControllerApi.seanceList);
 router.get('/api/seances/old', seancesControllerApi.seanceListOld);
+router.get('/api/seances/:id', seancesControllerApi.seanceListSolo);
 router.post('/api/seances', seancesControllerApi.seanceNew);
 router.put('/api/seances/:id', seancesControllerApi.seanceUpdate);
 router.delete('/api/seances/:id', seancesControllerApi.seanceRemove);
 
 //Routes genre de films
 router.get('/categories', categoriesController.categorieList);
-router.get('/categories/add', categoriesController.categorieFormAdd);
+router.get('/categoriesadd', categoriesController.categorieFormAdd);
 router.post('/categories/new', categoriesController.categorieNew);
-router.get('/categories/update/:id', categoriesController.categorieFormUpdate);
+router.get('/categoriesupdate/:id', categoriesController.categorieFormUpdate);
 router.get('/categories/delete/:id', categoriesController.categorieRemove);
 
 //API routes genre de films

@@ -1,20 +1,73 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>philm.io</title>
+    <meta name="description" content="Ce site sert aux visiteurs à programmer leur prochaine visite au cinéma et à l'administrateur de gérer un cinéma."/>
+    <link href="http://localhost:8000/css/normalize.css" rel="stylesheet">
+    <link href="http://localhost:8000/css/style.css" rel="stylesheet" type="text/css">
+    <link href="http://localhost:8000/images/favicon.ico" rel="shortcut icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <meta name="robots" content="noindex, nofollow">
+</head>
+<body>
 <% if(loggedin){ %>
-    <h1>Gestion du cinéma</h1>
-    <h3 style="font-weight: normal;">Bonjour, vous êtes connecté en tant que <b><%=name%>.</b> </h3> <a href="/logout" style="background-color: black; color:white; padding: 10px 26px; text-align: center; text-decoration: none; font-size: 14px;">Logout</a><br><br><br><br>
-    <a href="/films" style="background-color: grey; color:white; padding: 10px 20px; text-align: center; text-decoration: none; font-size: 14px; margin-right: 20px;">Films</a>
-    <a href="/seances" style="background-color: grey; color:white; padding: 10px 20px; text-align: center; text-decoration: none; font-size: 14px;">Séances</a>
-    <br><br><br><br>
-    <a href="/categories" style="background-color: grey; color:white; padding: 10px 16px; text-align: center; text-decoration: none; font-size: 14px; margin-right: 20px;">Genres</a>
-    <a href="/salles" style="background-color: grey; color:white; padding: 10px 26px; text-align: center; text-decoration: none; font-size: 14px;">Salles</a>
-    <br><br><br><br>
-    <a href="/user" style="background-color: grey; color:white; padding: 10px 25px; text-align: center; text-decoration: none; font-size: 14px; margin-right: 25px;">Utilisateurs</a>
-    <br><br><br><br>
+    <header>
+        <h1>
+            <img id="menuButton" src="./images/menu.svg" alt="icon_burger_menu">  
+            <a href="/">application gestion de cinéma.</a>
+        </h1>
+    </header>
+    <main>
+        <section class="intro">
+            <p>bienvenue, vous êtes connecté en tant que <strong style="color:#0092ac"><%=name%>.</strong></p>
+            <p>projet d'architecture & ergonomie <strong style="color:#0092ac">WEB.</strong></p>
+            <p>master Business Analyst.</p>
+            <p>ecam - ichec.</p>
+            <p><span class="color">nom : </span> Steven Gomes.</p>
+            <p><span class="color">matricule :</span> 190375.</p>
+            <p><span class="color">professeurs :</span> monsieurs Dekimpe & Lurkin.</p>
+        </section>
+    </main>
+    <nav id="mainMenu">
+      <a href="/">accueil</a>
+      <a href="/films">films</a>
+      <a href="/seances">séances</a>
+      <a href="/categories">genres</a>
+      <a href="/salles">salles</a>
+      <a href="/user">users</a>
+      <a href="/ressources">ressources</a>
+      <a href="https://github.com/gomst070/node_gestioncinema">github</a>
+      <a href="/logout">deconnexion</a>
+    </nav>
 <% } else{ %>  
-    <a href="/login" style="color: black; font-size: 14px;">Connexion administrateur</a>
-    <h1>Bienvenue sur la page de votre cinéma!</h1> 
-    <h2 style="font-weight: normal;">Profitez des derniers films et planifier votre prochaine visite</h2><br>
-    <a href="/films" style="background-color: grey; color:white; padding: 10px 20px; text-align: center; text-decoration: none; font-size: 14px; margin-right: 20px;">Films</a>
-    <a href="/seances" style="background-color: grey; color:white; padding: 10px 20px; text-align: center; text-decoration: none; font-size: 14px;">Séances</a>
-    <br><br><br><br><br><br><br><br>
+    <header>
+        <h1>
+            <img id="menuButton" src="./images/menu.svg">  
+            <a href="/">cinéma - philm.io</a>
+        </h1>
+    </header>
+    <main>
+        <section class="intro">
+            <p>Bienvenue sur la page de votre cinéma!</p>
+            <p>Profitez des derniers films et planifier votre prochaine visite</p>
+        </section>
+        <div>
+            <img src="./images/cinema.jpg" alt="affiche_cinema">  
+        </div>
+    </main>
+    <nav id="mainMenu">
+      <a href="/">accueil</a>
+      <a href="/films">films</a>
+      <a href="/seances">séances</a>
+      <a href="/login">login</a>
+    </nav>
 <% } %>
+    <footer>2020, copyright © philm.io</footer>
+    <div id="overlay"></div>
+    <script src="./script/drawer.js" type="text/javascript">
+    </script>
+</body>
+</html>
 
