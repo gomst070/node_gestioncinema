@@ -17,9 +17,25 @@ exports.salleList = function (request, response) {
     });
 }
 
+//Afficher une salle solo
+exports.salleListSolo = function (request, response) {
+    let id = request.params.id; 
+    console.log(id);
+    connection.query("Select * from salles WHERE id = ?", id, function (error, resultSQL) {
+        if (error){
+            response.status(400).json({'message': error});      
+        } else {
+            response.status(200);
+            salleList = resultSQL;
+            console.log(salleList);
+            response.json({salles:salleList});
+        }
+    });
+}
+
 //Ajouter une salle
 exports.salleNew = function(request, response) {
-    if(request.body.extra === "on"){ 
+    if(request.body.extra === true){ 
         request.body.extra = 1
     } 
     else { 
@@ -43,7 +59,7 @@ exports.salleUpdate = function(request, response) {
     let id = request.params.id;
     let name =  request.body.name;
     let extra = request.body.extra;
-
+    
     let salle = new Salle(name, extra);
     connection.query("UPDATE salles SET ? WHERE id = ?", [salle, id], function (error, resultSQL) {
         if(error) {

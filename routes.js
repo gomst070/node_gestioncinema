@@ -64,6 +64,7 @@ router.get('/salles/delete/:id', sallesController.salleRemove);
 
 //API routes salles
 router.get('/api/salles', sallesControllerApi.salleList);
+router.get('/api/salles/:id', sallesControllerApi.salleListSolo);
 router.post('/api/salles', sallesControllerApi.salleNew);
 router.put('/api/salles/:id', sallesControllerApi.salleUpdate);
 router.delete('/api/salles/:id', sallesControllerApi.salleRemove);
@@ -93,6 +94,7 @@ router.get('/categories/delete/:id', categoriesController.categorieRemove);
 
 //API routes genre de films
 router.get('/api/categories', categoriesControllerApi.categorieList);
+router.get('/api/categories/:id', categoriesControllerApi.categorieListSolo);
 router.post('/api/categories', categoriesControllerApi.categorieNew);
 router.put('/api/categories/:id', categoriesControllerApi.categorieUpdate);
 router.delete('/api/categories/:id', categoriesControllerApi.categorieRemove);

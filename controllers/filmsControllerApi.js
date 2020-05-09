@@ -36,7 +36,7 @@ exports.filmList = function (request, response) {
 exports.filmListSolo = function (request, response) {
     let id = request.params.id; 
     console.log(id);
-        connection.query("Select films.id, films.title, categories.name AS 'genre' from films LEFT join categories on categories.id = films.id_categorie WHERE films.id = ?", id, function (error, resultSQL) {
+        connection.query("Select films.id, films.title,categories.name AS 'genre' from films LEFT join categories on categories.id = films.id_categorie WHERE films.id = ?", id, function (error, resultSQL) {
             if (error){
                 response.status(400).json({'message': error});      
             }
@@ -71,7 +71,7 @@ exports.filmNew = function(request, response) {
 exports.filmUpdate = function(request, response) {
     let id = request.params.id;
     let title =  request.body.title;
-    let id_categorie = request.body.id_categorie;
+    let id_categorie = request.body.genre;
 
     let film = new Film(title, id_categorie);
     console.log(film);

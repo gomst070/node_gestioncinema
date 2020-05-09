@@ -17,6 +17,22 @@ exports.categorieList = function (request, response) {
     });
 }
 
+//Afficher un genre solo
+exports.categorieListSolo = function (request, response) {
+    let id = request.params.id; 
+    console.log(id);
+    connection.query("Select * from categories WHERE id = ?", id, function (error, resultSQL) {
+        if (error){
+            response.status(400).json({'message': error});      
+        } else {
+            response.status(200);
+            categorieList = resultSQL;
+            console.log(categorieList);
+            response.json({categories:categorieList});
+        }
+    });
+}
+
 //Ajouter une catégorie / genre de film 
 exports.categorieNew = function(request, response) {
     let name =  request.body.name;

@@ -5,7 +5,7 @@ let seanceListOld = [];
 
 // Liste des séances à venir
 exports.seanceList = function (request, response) {  
-    connection.query("Select seances.id, DATE_FORMAT(date, '%d/%m/%Y') AS date, DATE_FORMAT(seances.heures, '%H:%i') AS heures, films.title, salles.name, salles.extra from `seances` LEFT join films on films.id = seances.id_film LEFT join salles on salles.id = seances.id_salle WHERE date >= CURDATE() AND heures >= CURTIME() ORDER BY date", function (error, resultSQL) {
+    connection.query("Select seances.id, DATE_FORMAT(date, '%d/%m/%Y') AS date, DATE_FORMAT(seances.heures, '%H:%i') AS heures, films.title, salles.name, salles.extra from `seances` LEFT join films on films.id = seances.id_film LEFT join salles on salles.id = seances.id_salle WHERE date > CURDATE() ORDER BY date", function (error, resultSQL) {
         if (error)  {
             response.status(400).send(error);        
         }
