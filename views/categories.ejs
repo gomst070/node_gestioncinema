@@ -35,7 +35,7 @@
           <div class="rTable">
             <div class="rTableRow">
               <div class="rTableHead">Genre de film</div>
-                <div class="rTableHead">Actions</div>   
+              <div class="rTableHead">Actions</div>   
             </div> 
             <% for (let i = 0 ;  i < categories.length ; i++) { %>
             <div class="rTableRow">
@@ -44,8 +44,8 @@
                   <a href="/categoriesupdate/<%= categories[i].id %>" class="modifier">Modifier</a>
                   <a onclick="return confirm('Veuillez cliquer sur OK si vous voulez supprimer cet élément')" href="/categories/delete/<%= categories[i].id %>" class="supprimer">Supprimer</a>
                 </div>   
-              <% } %>
             </div>
+            <% } %>
       <% } %>
           </div>
         </section>
