@@ -28,18 +28,15 @@
     </header>
   <% } %>
     <main>
+      <% if(loggedin){ %>
         <section style="margin-bottom: 5rem;">
           <h1>salles de cinéma</h1>
-          <% if(loggedin){ %>
             <a href="/salles/add" class="ajouter">Ajouter une salle</a><br /><br />    
-          <% } %>
           <div class="rTable">
             <div class="rTableRow">
               <div class="rTableHead">Nom de la salle</div>
               <div class="rTableHead">3D</div>
-              <% if(loggedin){ %>
                 <div class="rTableHead">Actions</div>   
-              <% } %>
             </div> 
             <% for (let i = 0 ;  i < salles.length ; i++) { %>
             <div class="rTableRow">
@@ -47,14 +44,13 @@
               <div class="rTableCell">
                 <input style="pointer-events:none" type="checkbox" name="extra" <% if(salles[i].extra === 1){ %> checked <%}%></div>
               </div>
-              <% if(loggedin){ %>
                 <div class="rTableCell">
                   <a href="/salles/update/<%= salles[i].id %>" class="modifier">Modifier</a>
                   <a onclick="return confirm('Veuillez cliquer sur OK si vous voulez supprimer cet élément')" href="/salles/delete/<%= salles[i].id %>" class="supprimer">Supprimer</a>
                 </div>   
               <% } %>
             </div>
-            <% } %>
+      <% } %>
           </div>
         </section>
     </main>
