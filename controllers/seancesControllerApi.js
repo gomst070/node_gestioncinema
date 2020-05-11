@@ -78,7 +78,7 @@ exports.seanceNew = function(request, response) {
 
     connection.query("INSERT INTO seances set ?", seance, function (error, resultSQL) {
         if(error) {
-            response.status(400).json({'message': error}); 
+            response.status(400).json({'message': "Echec ajout => mysql error: " + error}); 
         }
         else{
             response.status(201).json({'message': 'Nouvelle séance rajoutée'}); 

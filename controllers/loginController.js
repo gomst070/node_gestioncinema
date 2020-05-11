@@ -18,7 +18,7 @@ exports.userLogin = function (request, response) {
                     response.end();
                 });
         } else {
-            response.send('<h3 style="color:red">Veuillez rentrez les champs nom et mot de passe svp!</h3><input type="button" value="Retour" onclick="history.go(-1)">');
+            response.send('<h3 style="color:red;">Veuillez rentrez les champs nom et mot de passe svp!</h3><input type="button" value="Retour" onclick="history.go(-1)">');
             response.end();
         }
 };  
