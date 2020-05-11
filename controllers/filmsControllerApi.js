@@ -33,6 +33,8 @@ exports.filmList = function (request, response) {
     } 
 }
 
+
+//Lister film solo
 exports.filmListSolo = function (request, response) {
     let id = request.params.id; 
     console.log(id);
